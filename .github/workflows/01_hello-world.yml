@@ -16,4 +16,4 @@ jobs:
         run: echo "Hello, World!"
 
       - name: Print env
-      - run: env
+        run: env
