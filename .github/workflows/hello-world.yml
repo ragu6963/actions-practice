@@ -4,9 +4,6 @@ on:
   push:
     branches:
       - main
-    paths:
-      - "workflows/01_Workflow/**"
-
 jobs:
   terminal-output:
     runs-on: ubuntu-latest
