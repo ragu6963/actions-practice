@@ -6,7 +6,7 @@ on:
       - main
 jobs:
   terminal-output:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
 
     steps:
       - name: Checkout code
@@ -14,3 +14,6 @@ jobs:
 
       - name: Print Hello World
         run: echo "Hello, World!"
+
+      - name: Print env
+      - run: env
