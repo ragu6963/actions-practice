@@ -1,4 +1,4 @@
-name: Terminal Output Secrets
+name: SSH-Agent
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
     branches:
       - main
 jobs:
-  secret-output:
+  ssh-agent:
     runs-on: ubuntu-24.04
 
     steps:
@@ -18,6 +18,9 @@ jobs:
         uses: webfactory/ssh-agent@v0.9.0
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: Add Host Key to Known Hosts
+        run: ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
 
       - name: Run remote command test
         run: ssh ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }} "touch 'hello-world.txt'"

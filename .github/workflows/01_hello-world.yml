@@ -3,7 +3,7 @@ name: Terminal Output Workflow
 on:
   push:
     paths:
-      - "01_hello-world.yml"
+      - ".github/workflows/01_hello-world.yml"
     branches:
       - main
 jobs:
